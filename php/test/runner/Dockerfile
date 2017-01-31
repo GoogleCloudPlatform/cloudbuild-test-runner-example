@@ -14,7 +14,7 @@
 
 # Dockerfile for running phpunit within a cloudbuild step.
 
-FROM python:2.7-alpine
+FROM alpine
 
 RUN mkdir -p /opt/bin
 ENV PATH=${PATH}:/opt/bin:/opt/gcloud/google-cloud-sdk/bin
@@ -29,14 +29,6 @@ RUN apk add php5 php5-openssl php5-json php5-phar php5-dom php5-bcmath wget \
     wget -nv https://phar.phpunit.de/phpunit.phar && \
     chmod +x phpunit.phar && \
     mv phpunit.phar /opt/bin/phpunit && \
-    wget -nv https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip && \
-    mkdir -p /opt/gcloud && \
-    unzip -qq google-cloud-sdk.zip -d /opt/gcloud && \
-    rm google-cloud-sdk.zip && \
-    /opt/gcloud/google-cloud-sdk/install.sh --usage-reporting=false \
-        --bash-completion=false \
-	--disable-installation-options && \
-    /opt/gcloud/google-cloud-sdk/bin/gcloud -q components update alpha beta && \
     apk del wget unzip && \
     rm -rf /var/cache/apk/*
 
