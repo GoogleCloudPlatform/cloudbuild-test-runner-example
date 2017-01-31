@@ -1,0 +1,8 @@
+{
+    "require": {
+        "google/cloud": "^0.20.1"
+    },
+    "autoload": {
+        "psr-4": { "Google\\Cloud\\CloudBuild\\Demo\\": "src/" }
+    }
+}
