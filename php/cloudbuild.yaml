@@ -1,2 +1,2 @@
 steps:
-        - name: gcr.io/cloud-dpes/phpunit-test-runner
+- name: gcr.io/cloud-dpes/phpunit-test-runner
