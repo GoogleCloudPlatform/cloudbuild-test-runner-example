@@ -33,5 +33,5 @@ install:
 
 script:
 - pushd php
-- gcloud beta container builds submit --config=cloudbuild.yaml .
+- gcloud container builds submit --config=cloudbuild.yaml .
 - popd
